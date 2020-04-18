@@ -78,12 +78,16 @@ def main():
 
     tm = cv2.TickMeter()
 
+    print("Starting main loop")
     while True:
         # Read frame, crop it, flip it, suits your needs.
         frame_got, frame = cap.read()
+        breakpoint()
         if frame_got is False:
             break
 
+        print("frame received")
+        print(frame)
         # Crop it if frame is larger than expected.
         # frame = frame[0:480, 300:940]
 
@@ -135,6 +139,8 @@ def main():
                 ps_stb.update([value])
                 steady_pose.append(ps_stb.state[0])
             steady_pose = np.reshape(steady_pose, (-1, 3))
+
+            print(steady_pose)
 
             # Uncomment following line to draw pose annotation on frame.
             # pose_estimator.draw_annotation_box(

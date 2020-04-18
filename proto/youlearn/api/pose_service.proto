@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.youlearn.api";
+option java_outer_classname = "HeadPoseProto";
+
+package youlearn.headpose.v1;
+
+message Frame {
+  uint64 frame_identifier = 1;
+  uint64 height = 2;
+  uint64 width = 3;
+  bytes frame_data = 4; 
+}
+
+message PoseResponse {
+  uint64 frame_identifier = 1;
+}
+
+service HeadPoseApi {
+  rpc GetPose(stream Frame) returns (stream PoseResponse) {}
+}
