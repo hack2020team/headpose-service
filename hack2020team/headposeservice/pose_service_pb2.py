@@ -18,7 +18,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='youlearn.headpose.v1',
   syntax='proto3',
   serialized_options=b'\n\020com.youlearn.apiB\rHeadPoseProtoP\001',
-  serialized_pb=b'\n/hack2020team/headposeservice/pose_service.proto\x12\x14youlearn.headpose.v1\"T\n\x05\x46rame\x12\x18\n\x10\x66rame_identifier\x18\x01 \x01(\x04\x12\x0e\n\x06height\x18\x02 \x01(\x04\x12\r\n\x05width\x18\x03 \x01(\x04\x12\x12\n\nframe_data\x18\x04 \x01(\x0c\"(\n\x0cPoseResponse\x12\x18\n\x10\x66rame_identifier\x18\x01 \x01(\x04\x32[\n\x0bHeadPoseApi\x12L\n\x07GetPose\x12\x1b.youlearn.headpose.v1.Frame\x1a\".youlearn.headpose.v1.PoseResponse\"\x00\x42#\n\x10\x63om.youlearn.apiB\rHeadPoseProtoP\x01\x62\x06proto3'
+  serialized_pb=b'\n/hack2020team/headposeservice/pose_service.proto\x12\x14youlearn.headpose.v1\"T\n\x05\x46rame\x12\x18\n\x10\x66rame_identifier\x18\x01 \x01(\x04\x12\x0e\n\x06height\x18\x02 \x01(\x04\x12\r\n\x05width\x18\x03 \x01(\x04\x12\x12\n\nframe_data\x18\x04 \x01(\x0c\"6\n\x0cPoseResponse\x12\x18\n\x10\x66rame_identifier\x18\x01 \x01(\x04\x12\x0c\n\x04pose\x18\x02 \x03(\x02\x32[\n\x0bHeadPoseApi\x12L\n\x07GetPose\x12\x1b.youlearn.headpose.v1.Frame\x1a\".youlearn.headpose.v1.PoseResponse\"\x00\x42#\n\x10\x63om.youlearn.apiB\rHeadPoseProtoP\x01\x62\x06proto3'
 )
 
 
@@ -90,6 +90,13 @@ _POSERESPONSE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='pose', full_name='youlearn.headpose.v1.PoseResponse.pose', index=1,
+      number=2, type=2, cpp_type=6, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -103,7 +110,7 @@ _POSERESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=159,
-  serialized_end=199,
+  serialized_end=213,
 )
 
 DESCRIPTOR.message_types_by_name['Frame'] = _FRAME
@@ -133,8 +140,8 @@ _HEADPOSEAPI = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=201,
-  serialized_end=292,
+  serialized_start=215,
+  serialized_end=306,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetPose',
