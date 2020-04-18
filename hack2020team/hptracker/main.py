@@ -1,8 +1,8 @@
 from concurrent import futures
 import grpc
 
-from ..api import pose_service_pb2_grpc
-from ..api.pose_service_pb2 import PoseResponse
+from ..headposeservice import pose_service_pb2_grpc
+from ..headposeservice.pose_service_pb2 import PoseResponse
 from .process_frame import FrameProcessor
 
 FRAME_WIDTH = 640

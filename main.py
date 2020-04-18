@@ -1,3 +1,3 @@
-from youlearn.hptracker import serve
+from hack2020team.hptracker import serve
 
 serve()
