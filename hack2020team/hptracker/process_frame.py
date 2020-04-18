@@ -14,7 +14,7 @@ class FrameProcessor(object):
         self.pose_estimator = PoseEstimator(
             img_size=(frame_height, frame_width),
         )
-        self.pose_stablizers = [
+        self.pose_stabilizers = [
             Stabilizer(
                 state_num=2,
                 measure_num=1,
@@ -26,6 +26,9 @@ class FrameProcessor(object):
 
     def process_frame(self, frame):
         frame_data = frame.frame_data
+
+        nparr = np.fromstring(frame_data, np.uint8)
+        frame_data = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
 
         facebox = self.mark_detector.extract_cnn_facebox(frame_data)
 
@@ -46,8 +49,7 @@ class FrameProcessor(object):
         marks *= (facebox[2] - facebox[0])
         marks[:, 0] += facebox[0]
         marks[:, 1] += facebox[1]
-
-        pose = self.pose_estimator.solve_pos_by_68_points(marks)
+        pose = self.pose_estimator.solve_pose_by_68_points(marks)
         steady_pose = []
         pose_np = np.array(pose).flatten()
         for value, ps_stb in zip(pose_np, self.pose_stabilizers):

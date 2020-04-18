@@ -19,8 +19,16 @@ class HeadPoseServicer(pose_service_pb2_grpc.HeadPoseApiServicer):
 
     def GetPose(self, frame, context):
         result = self.frame_processor.process_frame(frame)
-        print(result)
-        return PoseResponse(frame_identifier=frame.frame_identifier)
+
+        if result is None:
+            result = []
+        else:
+            result = result.flatten().tolist()
+
+        return PoseResponse(
+            frame_identifier=frame.frame_identifier,
+            pose=result,
+        )
 
 
 def serve():
@@ -29,4 +37,5 @@ def serve():
       HeadPoseServicer(), server)
     server.add_insecure_port('[::]:50051')
     server.start()
+    print("started server")
     server.wait_for_termination()
