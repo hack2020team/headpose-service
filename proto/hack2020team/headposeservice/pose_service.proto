@@ -18,5 +18,5 @@ message PoseResponse {
 }
 
 service HeadPoseApi {
-  rpc GetPose(stream Frame) returns (stream PoseResponse) {}
+  rpc GetPose(Frame) returns (PoseResponse) {}
 }

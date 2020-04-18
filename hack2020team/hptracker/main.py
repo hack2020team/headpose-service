@@ -17,11 +17,10 @@ class HeadPoseServicer(pose_service_pb2_grpc.HeadPoseApiServicer):
         )
         super().__init__()
 
-    def GetPose(self, request_iter, context):
-        for frame in request_iter:
-            result = self.frame_processor.process_frame(frame)
-            print(result)
-            yield PoseResponse(frame_identifier=frame.frame_identifier)
+    def GetPose(self, frame, context):
+        result = self.frame_processor.process_frame(frame)
+        print(result)
+        return PoseResponse(frame_identifier=frame.frame_identifier)
 
 
 def serve():

@@ -18,7 +18,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='youlearn.headpose.v1',
   syntax='proto3',
   serialized_options=b'\n\020com.youlearn.apiB\rHeadPoseProtoP\001',
-  serialized_pb=b'\n/hack2020team/headposeservice/pose_service.proto\x12\x14youlearn.headpose.v1\"T\n\x05\x46rame\x12\x18\n\x10\x66rame_identifier\x18\x01 \x01(\x04\x12\x0e\n\x06height\x18\x02 \x01(\x04\x12\r\n\x05width\x18\x03 \x01(\x04\x12\x12\n\nframe_data\x18\x04 \x01(\x0c\"(\n\x0cPoseResponse\x12\x18\n\x10\x66rame_identifier\x18\x01 \x01(\x04\x32_\n\x0bHeadPoseApi\x12P\n\x07GetPose\x12\x1b.youlearn.headpose.v1.Frame\x1a\".youlearn.headpose.v1.PoseResponse\"\x00(\x01\x30\x01\x42#\n\x10\x63om.youlearn.apiB\rHeadPoseProtoP\x01\x62\x06proto3'
+  serialized_pb=b'\n/hack2020team/headposeservice/pose_service.proto\x12\x14youlearn.headpose.v1\"T\n\x05\x46rame\x12\x18\n\x10\x66rame_identifier\x18\x01 \x01(\x04\x12\x0e\n\x06height\x18\x02 \x01(\x04\x12\r\n\x05width\x18\x03 \x01(\x04\x12\x12\n\nframe_data\x18\x04 \x01(\x0c\"(\n\x0cPoseResponse\x12\x18\n\x10\x66rame_identifier\x18\x01 \x01(\x04\x32[\n\x0bHeadPoseApi\x12L\n\x07GetPose\x12\x1b.youlearn.headpose.v1.Frame\x1a\".youlearn.headpose.v1.PoseResponse\"\x00\x42#\n\x10\x63om.youlearn.apiB\rHeadPoseProtoP\x01\x62\x06proto3'
 )
 
 
@@ -134,7 +134,7 @@ _HEADPOSEAPI = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   serialized_start=201,
-  serialized_end=296,
+  serialized_end=292,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetPose',

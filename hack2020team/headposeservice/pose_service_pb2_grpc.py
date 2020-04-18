@@ -13,7 +13,7 @@ class HeadPoseApiStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.GetPose = channel.stream_stream(
+        self.GetPose = channel.unary_unary(
                 '/youlearn.headpose.v1.HeadPoseApi/GetPose',
                 request_serializer=hack2020team_dot_headposeservice_dot_pose__service__pb2.Frame.SerializeToString,
                 response_deserializer=hack2020team_dot_headposeservice_dot_pose__service__pb2.PoseResponse.FromString,
@@ -23,7 +23,7 @@ class HeadPoseApiStub(object):
 class HeadPoseApiServicer(object):
     """Missing associated documentation comment in .proto file"""
 
-    def GetPose(self, request_iterator, context):
+    def GetPose(self, request, context):
         """Missing associated documentation comment in .proto file"""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -32,7 +32,7 @@ class HeadPoseApiServicer(object):
 
 def add_HeadPoseApiServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'GetPose': grpc.stream_stream_rpc_method_handler(
+            'GetPose': grpc.unary_unary_rpc_method_handler(
                     servicer.GetPose,
                     request_deserializer=hack2020team_dot_headposeservice_dot_pose__service__pb2.Frame.FromString,
                     response_serializer=hack2020team_dot_headposeservice_dot_pose__service__pb2.PoseResponse.SerializeToString,
@@ -48,7 +48,7 @@ class HeadPoseApi(object):
     """Missing associated documentation comment in .proto file"""
 
     @staticmethod
-    def GetPose(request_iterator,
+    def GetPose(request,
             target,
             options=(),
             channel_credentials=None,
@@ -57,7 +57,7 @@ class HeadPoseApi(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/youlearn.headpose.v1.HeadPoseApi/GetPose',
+        return grpc.experimental.unary_unary(request, target, '/youlearn.headpose.v1.HeadPoseApi/GetPose',
             hack2020team_dot_headposeservice_dot_pose__service__pb2.Frame.SerializeToString,
             hack2020team_dot_headposeservice_dot_pose__service__pb2.PoseResponse.FromString,
             options, channel_credentials,
