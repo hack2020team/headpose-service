@@ -29,6 +29,7 @@ class FrameProcessor(object):
 
         nparr = np.fromstring(frame_data, np.uint8)
         frame_data = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+        frame_data = cv2.flip(frame_data, 2)
 
         facebox = self.mark_detector.extract_cnn_facebox(frame_data)
 
